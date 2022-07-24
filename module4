@@ -1,0 +1,98 @@
+#1. Create a variable named STOCK and assign it a value of AAPL
+ubuntu@ip-172-31-16-54:~$ STOCK="AAPL"
+#2. Print the value of the variable out to the screen
+ubuntu@ip-172-31-16-54:~$ echo $STOCK
+AAPL
+#3. Change the value of the variable STOCK to be the previous value w _US appended onto the end
+ubuntu@ip-172-31-16-54:~$ STOCK="AAPL_US" #or STOCK+="_US"
+#4. Create a new variable named PRICE with value 290.84
+ubuntu@ip-172-31-16-54:~$ PRICE=290.84
+#5. Print to screen ‘The current price of is ’ where you call the variables and get their values
+ubuntu@ip-172-31-16-54:~$ echo "The current price of" $STOCK "is" $PRICE
+The current price of AAPL_US is 290.84
+#6. Create a variable named WHOAMI and assign it ur current username. Do this in one command.
+ubuntu@ip-172-31-16-54:~$ WHOAMI=$USER
+#7. Using just $ and () assign a variable named SERVERTYPE by using the uname command
+ubuntu@ip-172-31-16-54:~$ SERVERTYPE=$(uname)
+#8. Write a command to show to the screen the value of running the command assigned to SERVERTYPE
+ubuntu@ip-172-31-16-54:~$ echo $SERVERTYPE
+Linux
+#9. Assign a variable named CMD the command uname -i (not the value of running the command but the command itself)
+ubuntu@ip-172-31-16-54:~$ CMD="uname -i"
+#10. Using echo and the variable CMD, show how you echo the value of CMD (not execute the command)
+ubuntu@ip-172-31-16-54:~$ echo `$CMD`
+x86_64
+#11. Using echo and the variable CMD, print what the CMD returns when run to the screen
+ubuntu@ip-172-31-16-54:~$ echo '$CMD'
+$CMD
+#12. Change directory to your home directory
+ubuntu@ip-172-31-16-54:~$ cd ~
+#13. Create a directory named scripts
+ubuntu@ip-172-31-16-54:~$ mkdir scripts
+#14. Print out your $PATH Value
+ubuntu@ip-172-31-16-54:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+#15. Append your newly created script directory to your path variable
+PATH+=/"scripts"
+#16. Check you can see your new path appended to the end of the path variable
+ubuntu@ip-172-31-16-54:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin/scripts
+#17. If you have Algo1 still created from previous exercises, remove directory structure and all files within it
+ubuntu@ip-172-31-16-54:~$ ls
+Algo1  Exercise1  config  scripts  syahirah
+ubuntu@ip-172-31-16-54:~$ rm -rf Exercise1 config scripts syahirah
+#18. Make a directory named Payment1
+ubuntu@ip-172-31-16-54:~$ mkdir Payment1
+#19. Within Payment1, make three directories named logs, configuration, and scripts
+ubuntu@ip-172-31-16-54:~$ cd Payment1
+ubuntu@ip-172-31-16-54:~/Payment1$ mkdir logs configuration scripts
+#20. Within scripts, create an empty file named start.sh
+ubuntu@ip-172-31-16-54:~/Payment1$ cd scripts
+ubuntu@ip-172-31-16-54:~/Payment1/scripts$ touch start.sh
+#21. Within configuration, create an empty file named instance.properties
+ubuntu@ip-172-31-16-54:~/Payment1/scripts$ cd ..
+ubuntu@ip-172-31-16-54:~/Payment1$ cd configuration
+ubuntu@ip-172-31-16-54:~/Payment1/configuration$ touch instance.properties
+#22. Everyone has permission to read instance.properties file, but assign write and execute only to yourself
+ubuntu@ip-172-31-16-54:~/Payment1/configuration$ chmod 344 instance.properties
+ubuntu@ip-172-31-16-54:~/Payment1/configuration$ ls -l
+total 0
+--wxr--r-- 1 ubuntu ubuntu 0 Jul 22 04:44 instance.properties
+#23. Set permissions on the file start.sh so everyone can execute and the group and owner can read and write
+ubuntu@ip-172-31-16-54:~/Payment1/configuration$ cd ..
+ubuntu@ip-172-31-16-54:~/Payment1$ cd scripts
+ubuntu@ip-172-31-16-54:~/Payment1/scripts$ chmod 771 start.sh
+ubuntu@ip-172-31-16-54:~/Payment1/scripts$ ls -l
+total 0
+-rwxrwx--x 1 ubuntu ubuntu 0 Jul 22 04:44 start.sh
+#24. Direct the output of man cat into a file in your home directory named cat.output
+ubuntu@ip-172-31-16-54:~/Payment1/scripts$ cd ~
+ubuntu@ip-172-31-16-54:~$ touch cat.output
+ubuntu@ip-172-31-16-54:~$ man cat>cat.ouput
+#25.  Change the permission of that file so everyone can read it but only the group can write and execute
+ubuntu@ip-172-31-16-54:~$ chmod 474 cat.output
+ubuntu@ip-172-31-16-54:~$ ls -l
+total 4
+drwxrwxr-x 5 ubuntu ubuntu 4096 Jul 22 04:43 Payment1
+-r--rwxr-- 1 ubuntu ubuntu    0 Jul 22 04:50 cat.output
+#26. Go back to your home directory
+ubuntu@ip-172-31-16-54:~$ cd ~
+#27. Prove your location
+ubuntu@ip-172-31-16-54:~$ pwd
+/home/ubuntu
+#28. Remove the directory Payment1 along with all subdirectories
+ubuntu@ip-172-31-16-54:~$ rm -rf Payment1
+#29. Delete the cat.output file, but with a warning first to the user
+ubuntu@ip-172-31-16-54:~$ rm -i cat.output
+rm: remove regular file 'cat.output'? yes
+#30. Create a directory named temp
+ubuntu@ip-172-31-16-54:~$ mkdir temp
+#31. Set a variable named MYTEMP that references the new temp directory you just created
+ubuntu@ip-172-31-16-54:~$ MYTEMP=/temp
+#32. Run a command to see the value of the MYTEMP variable
+ubuntu@ip-172-31-16-54:~$ echo $MYTEMP
+/temp
+#33. Now set the value of $MYTEMP to nothing
+ubuntu@ip-172-31-16-54:~$ unset MYTEMP
+#34. Remove the temp directory that you created
+ubuntu@ip-172-31-16-54:~$ rmdir temp
