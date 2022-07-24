@@ -1,0 +1,78 @@
+#1. Change the directory to your home directory.
+ubuntu@ip-172-31-16-54:~$ cd ~
+#2. Print out your current directory.
+ubuntu@ip-172-31-16-54:~$ pwd
+/home/ubuntu
+#3. Create a folder named Algo1.
+ubuntu@ip-172-31-16-54:~$ mkdir Algo1
+$4. Within Algo1, create subfolders named config, bin, logs, and scripts.
+ubuntu@ip-172-31-16-54:~$ cd Algo1
+ubuntu@ip-172-31-16-54:~/Algo1$ mkdir config bin logs scripts
+#5. Within config, create empty files named config.config and variables.
+ubuntu@ip-172-31-16-54:~/Algo1$ cd config
+ubuntu@ip-172-31-16-54:~/Algo1/config$ touch config.config variables
+#6. Within scripts, create empty files named start.sh, stop.sh and admin.sh.
+ubuntu@ip-172-31-16-54:~/Algo1/config$ cd ..
+ubuntu@ip-172-31-16-54:~/Algo1$ cd scripts
+ubuntu@ip-172-31-16-54:~/Algo1/scripts$ touch start.sh stop.sh admin.sh
+#7. Within logs, create an empty file named today.log.
+ubuntu@ip-172-31-16-54:~/Algo1/scripts$ cd ..
+ubuntu@ip-172-31-16-54:~/Algo1$ cd logs
+ubuntu@ip-172-31-16-54:~/Algo1/logs$ touch today.log
+#8. Go back to your home directory.
+ubuntu@ip-172-31-16-54:~/Algo1/logs$ cd ~
+#9. Long list everything recursively.
+ubuntu@ip-172-31-16-54:~$ find ./Algo1 -print
+./Algo1
+./Algo1/bin
+./Algo1/config
+./Algo1/config/variables
+./Algo1/config/config.config
+./Algo1/logs
+./Algo1/logs/today.log
+./Algo1/scripts
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+#10. Remove the file named variables in the config directory.
+ubuntu@ip-172-31-16-54:~$ cd ./Algo1/config
+ubuntu@ip-172-31-16-54:~/Algo1/config$ rm variables
+#11. Remove the bin directory that you previously created.
+ubuntu@ip-172-31-16-54:~/Algo1/config$ cd ..
+ubuntu@ip-172-31-16-54:~/Algo1$ rmdir bin
+#12. Change back to your home directory.
+ubuntu@ip-172-31-16-54:~/Algo1$ cd ~
+#13. Create the bin directory again within Algo1.
+ubuntu@ip-172-31-16-54:~$ mkdir ./Algo1/bin
+#14. Create a directory in the logs folder named oldlogs.
+ubuntu@ip-172-31-16-54:~$ cd Algo1
+ubuntu@ip-172-31-16-54:~/Algo1$ cd logs
+ubuntu@ip-172-31-16-54:~/Algo1/logs$ mkdir oldlogs
+#15. Within oldlogs, create folders named 2019, 2018, and 2017.
+ubuntu@ip-172-31-16-54:~/Algo1/logs$ cd oldlogs
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs$ mkdir 2019 2018 2017
+#16. Within 2017, create an empty file named 2017.log.
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs$ cd 2017
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2017$ touch 2017.log
+#17. Within 2018, create an empty file named 2018.log.
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2017$ cd ..
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs$ cd 2018
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2018$ touch 2018.log
+#18. Within 2019, create an empty file named 2019.log.
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2018$ cd ..
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs$ cd 2019
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2019$ touch 2019.log
+#19. Change back to your home directory.
+ubuntu@ip-172-31-16-54:~/Algo1/logs/oldlogs/2019$ cd ~
+#20. Remove oldlogs using one command.
+ubuntu@ip-172-31-16-54:~$ rm -rf ./Algo1/logs/oldlogs
+#21. Ensure you are in your home directory.
+ubuntu@ip-172-31-16-54:~$ cd ~
+#22. Search for all files from your home directory that end in .sh.
+ubuntu@ip-172-31-16-54:~$ find ./Algo1 -name "*.sh"
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+#23. Go into the scripts directory and use a command to remove both the start and stop script without specifying each file separately: rm s*.sh
+ubuntu@ip-172-31-16-54:~$ cd ./Algo1/scripts
+ubuntu@ip-172-31-16-54:~/Algo1/scripts$ rm s*.sh
