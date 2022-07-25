@@ -1,0 +1,53 @@
+#Part1: Avengers. 
+#1. Open a new file named avengers in your home directory in your editor and paste in the following text:
+#Six stones, three teams, one shot. Five years ago, we lost. All of us. We lost friends. We lost family. We lost a part of ourselves. Today, we have a chance to take it all back. You know your teams. You know your missions. Get the stones. Get them back. One round trip each. No mistakes. No do-overs. Most of us are going somewhere we know. that doesn't mean we should know what to expect. Be careful. Look out for each other. This is the fight of our lives, and we're gonna win. Whatever it takes. Good luck.
+#2. Exit and save the file.
+ubuntu@ip-172-31-16-54:~$ vi avengers
+#3. Run a word count on the file.
+ubuntu@ip-172-31-16-54:~$ wc avengers # 1 98 510
+#4. Edit the file to add a blank line and type in "word count" followed by the value you just got.
+ubuntu@ip-172-31-16-54:~$ vi avengers # type in word count 98
+#5. Now use search and replace within the editor to replace every instance of the word the with THE. Ensure that you only catch the word the and not words that contain the letters the (like them).
+# in vi editor command mode, :%s/\<the\>/THE/g
+#6. Copy the first line of the file and paste it after your word count entry at the bottom of the file.
+# type yy to copy, go to word count line, type p
+#7. Delete the first line of the file.
+# go to first line, type dd
+#8. Undo that deletion.
+# command mode, :u
+#9. Insert at the top of the file the text "Captain America – Endgame" followed by an empty line.
+# i/insert to go to insert mode
+#10. Save the changes and exit the editor.
+# esc to command mode, :x
+#11. Find out the number of lines in the file now.
+ubuntu@ip-172-31-16-54:~$ wc -l avengers #5 lines
+#12. Write the number of lines into the file one line above the word count with the text "line count" plus the value.
+ubuntu@ip-172-31-16-54:~$ vi avengers # line count 5
+#13. Delete "Good luck" wherever it occurs in the file.
+# in vi editor command mode, :%s/Good luck.//g
+#14. Save and exit the file
+# esc to command mode, :x
+#15. Rename the file avengers.yourname and put it in the location specified by the instructor.
+ubuntu@ip-172-31-16-54:~$ vi avengers # :Explore, go to avengers file, type R, rename file to avengers.syahirah, enter so it is renamed!
+# Part 2: Log Files # USING GITBASH
+Run the fixGenerator.sh script again from your home directory using the following commands:
+cd ~
+./fixGenerator.sh &
+You should have a fix log output now from running the script earlier.
+syhhh@DESKTOP-S0KNLSL MINGW64 ~$ ls -ltra # fixlog20220725174044.log
+#1. Run a search for all new order singles in the fix log output and put the output of that search into a file named newOrders.log in your home directory.
+syhhh@DESKTOP-S0KNLSL MINGW64 ~$ cat fixlog20220725174044.log | grep "35=8" > newOrders.log
+#2. Open newOrders.log in your editor.
+syhhh@DESKTOP-S0KNLSL MINGW64 ~$ vi newOrders.log
+#3. Duplicate the first line in the file.
+# command mode, :1, type yyp
+#4. Go to the fifth line in the file and duplicate it also.
+# command mode, :5, type yyp
+#5. Find and replace every instance of MTHREE with M3.
+# command mode, :%s/MTHREE/M3/g
+#6. Find and replace every ; (semicolon) with a , (comma) and ensure there is no space after the commas.
+# command mode, :%s/; /,/g
+#7. Save and exit the file.
+# command mode, :x
+#8. Rename your file to newOrders.<yourname>.log and save it in the directory specified by the instructor.
+syhhh@DESKTOP-S0KNLSL MINGW64 ~$ vi newOrders.log # :Explore, go to newOrders.log file, type R, rename file to newOrders.syahirah.log, enter so it is renamed! :x to exit editor
