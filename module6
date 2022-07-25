@@ -1,0 +1,49 @@
+#1. Run a command to see all the processes running on the server owned by everyone.
+ubuntu@ip-172-31-16-54:~$ ps -ef
+#2. Confirm the username you are running as.
+ubuntu@ip-172-31-16-54:~$ whoami # ubuntu
+#3. Run a command to see all the processes running on the server and use grep to select only the processes your user is running.
+ubuntu@ip-172-31-16-54:~$ ps -ef | grep “ubuntu”
+#4. Repeat the previous exercise. This time, select every process except things running as you.
+ubuntu@ip-172-31-16-54:~$ ps -ef | grep -v “ubuntu”
+#5. Show the process info for our current session without using a grep command.
+ubuntu@ip-172-31-16-54:~$ ps -f$$
+#6. Show the process tree for the current session.
+ubuntu@ip-172-31-16-54:~$ pstree -shapu $$
+#7. Run a process check on server but only output the User, pid and cmd columns to your results.
+ubuntu@ip-172-31-16-54:~$ ps -eo uid,pid,cmd
+#8. Run a process check to pull all of the process ids running on the server and put the output into a file named list in your home directory.
+ubuntu@ip-172-31-16-54:~$ ps -eo pid > list
+#9. Run the following series of commands:
+#9.1. sleep 300 &
+ubuntu@ip-172-31-16-54:~$ sleep 300 &
+#9.2. Find this command by checking the processes and running a grep
+ubuntu@ip-172-31-16-54:~$ ps -ef | grep “sleep 300”
+#9.3. Stop the process using the process id #40414
+ubuntu@ip-172-31-16-54:~$ kill 40414
+ubuntu@ip-172-31-16-54:~$ ps -ef | grep “sleep 300” # to see it’s terminated
+#10. Run a command to see a dynamic view of all the processes running on your host.
+ubuntu@ip-172-31-16-54:~$ top
+#11. Now run the same command but specifically only for root.
+ubuntu@ip-172-31-16-54:~$ top -u root
+#12. Experiment with the following commands while running top and note your observations:
+z  highlights running processes in top, help w diagnosis
+c  gives absolute path of each running process
+Shift P  sorts the results by CPU utilization
+k  pops out “PID to signal/kill [default pid = <no>” [allows to kill a pid]
+#13. Run a command to check network connectivity between your Linux session and yahoo.com.
+ubuntu@ip-172-31-16-54:~$ ping yahoo.com # ctrl + c to fast forward ping
+#14. Show the network route between your session and yahoo.com and output the contents into a file named yahoo.route in your home directory.
+ubuntu@ip-172-31-16-54:~$ traceroute yahoo.com > yahoo.route
+#15. View the file using less and see how many hops it took to get there. #20 hops
+ubuntu@ip-172-31-16-54:~$ less yahoo.route
+#16. Create a soft link named route to your network route.
+ubuntu@ip-172-31-16-54:~$ ln -s yahoo.route route
+#17. Run a command to see all the network sockets on your server and output to a file named output in your home directory.
+ubuntu@ip-172-31-16-54:~$ netstat > output
+#18. Create a folder named network in your home directory.
+ubuntu@ip-172-31-16-54:~$ mkdir network
+#19. Move your route file and network output file into the network folder you just created.
+ubuntu@ip-172-31-16-54:~$ mv {route,output} network
+#20. Run the command to query your network interfaces on your session.
+ubuntu@ip-172-31-16-54:~$ ifconfig -a
