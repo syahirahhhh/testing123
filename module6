@@ -9,7 +9,7 @@ ubuntu@ip-172-31-16-54:~$ ps -ef | grep -v “ubuntu”
 #5. Show the process info for our current session without using a grep command.
 ubuntu@ip-172-31-16-54:~$ ps -f$$
 #6. Show the process tree for the current session.
-ubuntu@ip-172-31-16-54:~$ pstree -shapu $$
+ubuntu@ip-172-31-16-54:~$ ps -ef f
 #7. Run a process check on server but only output the User, pid and cmd columns to your results.
 ubuntu@ip-172-31-16-54:~$ ps -eo uid,pid,cmd
 #8. Run a process check to pull all of the process ids running on the server and put the output into a file named list in your home directory.
