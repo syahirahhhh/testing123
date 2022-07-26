@@ -37,6 +37,18 @@ touch output.log.$GENDATE
 #Additional questions:
 #1. Create a script to summarize available disk space and present in a logical and readable fashion
 vi diskspace.sh
-# in vi editor, df -h | awk '{ print $1,$4 }', then esc then :x
+# in vi editor,
+#!/bin/bash
+df -h | awk '{ print $1,$4 }'
+# then esc then :x
 chmod 777 diskspace.sh
 ./diskspace.sh
+
+#2. Write a shell script which uses function to print hello world
+vi helloworld.sh
+# in vi editor,
+#!/bin/bash
+echo hello world
+# then esc then :x
+chmod 777 helloworld.sh
+./helloworld.sh
