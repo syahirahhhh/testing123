@@ -1,0 +1,42 @@
+#1. Create a variable named TEXT with the value "The number is "
+TEXT=”The number is “
+
+#2. Write a for loop that prints numbers 1-25 after printing the value of TEXT each time.
+for i in {1..25}; do echo $TEXT $i; done
+
+#3. Run the same command, this time redirecting the output to a file named forloop.out.
+for i in {1..25}; do echo $TEXT $i; done > forloop.out
+
+#4. Write a sed command that creates a new output file from forloop.out where instead of saying "the number is ", it will now say "the number is not ". Name the file forloop2.out
+sed ‘s/the number is/the number is not/g’ forloop.out > forloop2.out
+
+#5. Try running the following if statement to get familiar with it:
+i=1
+if(( $i==1 ))
+then
+echo "i is equal to 1"
+elif(($i==2))
+then
+echo "i is equal to 2"
+else
+echo "i is neither 1 or 2"
+fi
+
+#6. Change the value of i to be something not 1 or 2 and check that the statement works again.
+# statement works and outputs “i is neither 1 or 2”
+
+#7. Create a variable of today's date named TODAY in the format of DD.MM.YYYY.
+TODAY=`date +%d.%m.%Y` 
+
+#8. Create another variable named GENDATE that has the command to generate and store the same date.
+GENDATE=$TODAY
+
+#9. Create a file named output.log with today’s date as an extension using the variable you just created.
+touch output.log.$GENDATE
+
+#Additional questions:
+#1. Create a script to summarize available disk space and present in a logical and readable fashion
+vi diskspace.sh
+# in vi editor, df -h | awk '{ print $1,$4 }', then esc then :x
+chmod 777 diskspace.sh
+./diskspace.sh
