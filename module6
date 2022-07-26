@@ -1,4 +1,4 @@
-#1. Run a command to see all the processes running on the server owned by everyone.
+#1. Run a command to see all processes running on the server owned by everyone.
 ubuntu@ip-172-31-16-54:~$ ps -ef
 #2. Confirm the username you are running as.
 ubuntu@ip-172-31-16-54:~$ whoami # ubuntu
