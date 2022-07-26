@@ -21,7 +21,7 @@ cat fixlog20220726114958.log | grep -v "35=8" > fixlog.log
 cat fixlog.log || grep "35=8"
 #10. Run the watch command on the date to see it work.
 watch date
-#11. Run the fixGenerator script in the background again.
+#11. Run fixGenerator script in the background again.
 ./fixGenerator.sh &
 #12. While it is running, use watch and run a line count on the changing log file as it is generated.
 watch wc fixlog20220726114958.log
