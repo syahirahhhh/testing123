@@ -24,4 +24,4 @@ watch date
 #11. Run the fixGenerator script in the background again.
 ./fixGenerator.sh &
 #12. While it is running, use watch and run a line count on the changing log file as it is generated.
-wc -l fixlog20220726114958.log
+watch wc fixlog20220726114958.log
