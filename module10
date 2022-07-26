@@ -1,0 +1,30 @@
+# If you have not been doing this all along, clean up your home directory removing any files you no longer need. Run the fixGenerator.sh script in your home directory again to prep for exercises in this module: ./fixGenerator.sh &
+# Use Linux to complete the following exercises.
+#1. Create a directory named logs.
+mkdir logs
+#2. Move the log output from the fixGenerator script into the logs directory. (Be sure the script has finished before doing this.)
+mv fixlog20220726041917.log logs
+#3. From the command line, replace all instances of MTHREE in the file with M3 and put the output into a new file named fixlog2.log in the logs directory.
+cd logs
+sed ‘s/MTHREE/M3/’ fixlog20220726041917.log > fixlog2.log
+#4. Run a command to pull all fill messages from fixlog2.log and put the output into a new logfile named fills.log. (You may need to look up how to tell if a message is a fill.)
+cat fixlog2.log | grep '39=2' > fills.log
+#5. Run a command to pull all cancel acknowledgement messages (39=4) from fixlog2.log into a new log named cancels.log in the same directory.
+cat fixlog2.log | grep '39=4' > cancels.log
+#6. Run a command to create a new log file named partialFills.log and add the partial fills from fills.log to the new file.
+cat fixlog2.log | grep '39=1' > partialFills.log
+#7. Use awk to create a new file out of the partial fill log that has the following tags only: Symbol (55); orderID (11); side(54); fill price (31); fill quantity (32); execution id (17). Name the file parsedPartialFills.log and make sure you print the columns in the order listed here.
+awk '{print $7, $9, $13, $10, $15, $16}' partialFills.log > parsedPartialFills.log #55:7, 11:9, 54:13, 31:10, 32:15,17:16
+#8. Using an editor, remove the first part of every fix tag (so you are left with the value only) and turn the file into a comma separated list with no spaces. This is how you might have to get a file ready to send to a trader.
+vi parsedPartialFills.log # command mode, :%s/; /,/g
+#9. In the file, add a row of column headers separated by commas. The headers should be Symbol, OrderID, Side, Price, Qty, and ExecID.
+#type i to go insert mode and add headers, then esc to command mode, :w to save
+
+#10. Save the file as .module10.csv in the location specified by your instructor.
+# command mode, :Explore, go to parsedPartialFills.log, R to rename to .module_10.csv
+#11. Make a copy of the cancels file and name it cancels2.log.
+cp cancels.log cancels2.log
+#12. Open the cancels2.log file in an editor. Find the first symbol (tag 55) in the first line and add the letter A to the beginning of the value. (If it was 55=GOOG, it will become 55=AGOOG.)
+vi cancels2.log #search by /55 and edit by adding letter A in my case FB  AFB
+#13. Run a difference between the original cancels file and the new file you just edited.
+diff -c cancels.log cancels2.log #can see ! at FB vs AFB
