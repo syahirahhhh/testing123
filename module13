@@ -41,7 +41,7 @@ cat LOTR.txt | grep “hobbit”
 #2. Put the first eight lines and the last three lines into a new file named LOTRtxt.
 head -8 LOTR.txt > LOTRtxt | tail -3 >> LOTRtxt
 #3. Run a command on the command line to replace all occurrences of Gollum with Thanos and output the results into a new file named LOTRMarvel.txt.
-sed -i 's/Gollum/Thanos/' LOTR.txt > LOTRMarvel.txt
+sed 's/Gollum/Thanos/' LOTR.txt > LOTRMarvel.txt
 #4. On the command line, run a command to compare the LOTR.txt with LOTRMarvel.txt.
 diff -c LOTR.txt LOTRMarvel.txt #can see ! at Gollum vs Thanos
 #5. Change the permission on LOTR.txt so that it is read and executable for others and group, and fully accessible for the current user.
