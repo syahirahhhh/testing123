@@ -1,15 +1,22 @@
-pipeline {
-  agent any
-  stages {
-    stage('version') {
+pipeline {                        
+  agent any                     
+  stages {                         
+    stage('build') {
       steps {
-        sh 'python3 --version'
+        echo “building the application…”
       }
     }
-    stage('hello') {
+    stage('test’) {
       steps {
-        sh 'python3 python_1.py'
+        echo “testing the application…”
+      }
+    }
+    stage('deploy') {
+      steps {
+        echo “deploying the application…”
+        sh ‘python3 python_1.py
       }
     }
   }
 }
+
